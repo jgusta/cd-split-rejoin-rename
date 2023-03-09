@@ -10,7 +10,7 @@ from termcolor import cprint
 if __name__ == '__main__':
     currentDir = os.getcwd()
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    parser = argparse.ArgumentParser(description="Combine sound files into one file.")
+    parser = argparse.ArgumentParser(description="Split audio sample cd rips into individual named files.")
     parser.add_argument('input',
                         type=Pather.arg_type,
                         help="Directory where to pull files from. Defaults to current directory.",
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--map",
         required=False,
-        help="A pipe-separated list of track number, artist and title",
+        help="Path to optional text file with sound names. Each line must have three entries separated by '|' symbol in this format: <#>|<artist>|<title>. For ex: '0124|James Brown|Funky Break'",
         default=None)
 
     parser.add_argument(
